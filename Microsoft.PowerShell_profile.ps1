@@ -90,7 +90,6 @@ Update-PowerShell
 # Admin Check and Prompt Customization
 $isAdmin = ([Security.Principal.WindowsPrincipal][Security.Principal.WindowsIdentity]::GetCurrent()).IsInRole([Security.Principal.WindowsBuiltInRole]::Administrator)
 function prompt {
-    $currentTime = Get-Date -Format "HH:mm:ss on dd/MM/yyyy"
     if ($isAdmin) { "[" + (Get-Location) + "] # " } else { "[" + (Get-Location) + "] $ " }
 }
 $adminSuffix = if ($isAdmin) { " [ADMIN]" } else { "" }
