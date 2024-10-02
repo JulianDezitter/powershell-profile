@@ -90,8 +90,8 @@ Update-PowerShell
 # Admin Check and Prompt Customization
 $isAdmin = ([Security.Principal.WindowsPrincipal][Security.Principal.WindowsIdentity]::GetCurrent()).IsInRole([Security.Principal.WindowsBuiltInRole]::Administrator)
 function prompt {
-	$currentTime = Get-Date -Format "HH:mm:ss dd/MM/yyyy"
-    if ($isAdmin) { "[" + (Get-Location) + "] $currentTime # " } else { "[" + (Get-Location) + "] $currentTime $ " }
+    $currentTime = Get-Date -Format "HH:mm:ss dd/MM/yyyy"
+    "[" + (Get-Location) + "] $currentTime > "
 }
 $adminSuffix = if ($isAdmin) { " [ADMIN]" } else { "" }
 $Host.UI.RawUI.WindowTitle = "PowerShell {0}$adminSuffix" -f $PSVersionTable.PSVersion.ToString()
